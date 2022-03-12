@@ -7,4 +7,5 @@ website = response.text
 soup = BeautifulSoup(website, 'html.parser')
 titles = [title.getText() for title in soup.find_all(name='h3', class_='title')]
 
-print(titles)
+with open('List of 100 films.txt', 'w+') as file:
+    [file.write(f'{title}\n') for title in titles[::-1]]
